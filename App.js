@@ -12,9 +12,11 @@
        CHATTER
      </header>
  
-     <div className="message">
-       {messages[0].text}
-     </div>
+     <main className="message">
+       {messages.map((m,i)=> {
+         return <Message key={i} {...m} />
+     }}}
+     </main>
  
      <TextInput 
        send={(t)=> setMessages([{text:t}])}
