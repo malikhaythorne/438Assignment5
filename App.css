@@ -1,4 +1,6 @@
-
+*{
+ box-sizing: border-box;
+}
  .App {
    text-align: center;
    background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
@@ -7,9 +9,10 @@
    height: 100vh;
    display: flex;
    flex-direction: column;
+   justify-content: space-between; 
  }
  .header{
-   background:rgba(255,255,255,0.2);
+   background:rgba(225,200,180,0.2);
    border-bottom:1px solid white;
    height: 2.5rem;
    display:flex;
@@ -23,42 +26,76 @@
    height:1.8rem;
    width:1.8rem;
    margin-right:10px;
-   background: url(./img/parrot.gif);
+   background: url(./img/cheetah.gif);
    background-repeat: no-repeat;
    background-position: center;
    background-size:cover;
  }
- 
- .text-input{
-   background:rgba(255,255,255,0.2);
-   border-top:1px solid white;
-   height: 2.5rem;
-   position: relative;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+.messages{
+  display: flex;
+  flex-direction: column-reverse;
+  flex: 1;
+  overflow: auto;
+}
+.message-row{
+  width:100%
+  display: flex;
+}
+.message{
+  background:black;
+  color:white;
+  border-radius:10px;
+  margin:8px;
+  display: inline-block;
+  padding: 4px 12px;
+  position: relative;
+}
+.message-name{
+  position: absolute;
+  top: -10px;
+  left: 7px;
+  font-size: 0.55rem;
+  color:black;
+  font-weight: bold;
+}
+.text-input{
+  background:rgba(255,255,255,0.2);
+  border-top:1px solid white;
+  height: 2.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+.send-button{
+  position:absolute;
+  right:0.6rem;
+  top:0.5rem;
+  border-radius:100%;
+  border:1px solid white;
+  background:white;
+  color:black;
+  cursor: pointer;
+  outline:none;
+  height:1.4rem;
+  width:1.4rem;
+}
+.send-button[disabled]{
+  background:grey;
+  cursor: default;
+}
+.send-button > svg {
+  color: white;
+.send-button[disabled] > svg {
+  color: white;
  }
- 
- .send-button{
-   position:absolute;
-   right:0.6rem;
-   top:0.5rem;
-   border-radius:100%;
-   border:1px solid white;
-   background:white;
-   color:black;
-   cursor: pointer;
-   outline:none;
-   height:1.4rem;
-   width:1.4rem;
- }
- .input{
-   height:1.6rem;
-   width: calc(100% - 1rem);
-   background:rgba(0, 0, 0, 0.5);
-   border-radius: 0.8rem;
-   outline:none;
-   border:1px solid white;
-   color:white;
-   padding-left:10px;
- }
+.input{
+  height:1.6rem;
+  width: calc(100% - 1rem);
+  background:rgba(0, 0, 0, 0.5);
+  border-radius: 0.8rem;
+  outline:none;
+  border:1px solid white;
+  color:white;
+  padding-left:10px;
+}
